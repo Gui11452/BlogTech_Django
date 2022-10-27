@@ -1,0 +1,152 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+{% load filters %}
+
+{% block 'estilos' %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index/mediaqueries1.css' %}">
+{% endblock %}
+
+{% block 'titulo' %} BlogTech {% endblock %}
+
+{% block 'main' %} 
+
+    <i class="fa-solid fa-arrow-up seta"></i>
+    
+    <header id="cabecalho">
+        <div class="div-visivel">
+            <a href="{% url 'index' %}">
+                BlogTech
+                <i class="fa-solid fa-rocket"></i>
+            </a>
+            <nav class="cabecalho-visivel">
+                <a href="{% url 'categoria' 'Jogos' %}" class="um"> 
+                    Jogos 
+                    <span></span>
+                </a>
+                <a href="{% url 'categoria' 'Tecnologia' %}" class="dois"> 
+                    Tecnologia 
+                    <span></span>
+                </a>
+                <a href="{% url 'categoria' 'Área TI' %}" class="tres"> 
+                    Área TI 
+                    <span></span>
+                </a>
+                <span></span>
+                {% if not user.is_authenticated %}
+                    <a href="{% url 'login' %}" class="quatro"> 
+                        Login
+                        <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                        <span></span>
+                    </a>
+                {% else %}
+                    <a href="{% url 'profile' %}" class="usuario"> 
+                        {{ user }}
+                        <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                    </a>
+                {% endif %}
+            </nav>
+            <nav class="botao-oculto">
+                <span></span>
+                <span></span>
+                <span></span>
+            </nav>
+            
+        </div>
+
+        <div class="div-oculta">
+            <nav class="cabecalho-oculto">
+                <a href="{% url 'categoria' 'Jogos' %}" class="um"> 
+                    Jogos 
+                    <span></span>
+                </a>
+                <a href="{% url 'categoria' 'Tecnologia' %}" class="dois"> 
+                    Tecnologia 
+                    <span></span>
+                </a>
+                <a href="{% url 'categoria' 'Área TI' %}" class="tres"> 
+                    Área TI 
+                    <span></span>
+                </a>
+                <span></span>
+                {% if not user.is_authenticated %}
+                    <a href="{% url 'login' %}" class="quatro"> 
+                        Login
+                        <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                        <span></span>
+                    </a>
+                {% else %}
+                    <a href="{% url 'profile' %}" class="usuario"> 
+                        {{ user }}
+                        <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                    </a>
+                {% endif %}
+            </nav>
+            
+        </div>
+    </header>
+
+    <section id="pesquisa">
+        <div>
+            
+            <div class="pesquisa-interna">
+                <h1> Fique por dentro de todos os assuntos tech da atualidade! </h1>
+                <p> "Nossa tecnologia passou a frente de nosso entendimento, e a nossa inteligência 
+                    desenvolveu-se mais do que a nossa sabedoria". <br> Roger Revelle </p>
+                <span></span>
+                <p> Procure algo do seu interesse: </p>
+                <form action="{% url 'busca' %}" method="GET">
+                    <input type="search" name="termo" placeholder="Pesquise algo...">
+                </form>
+            </div>
+            
+
+        </div>
+    </section>
+
+    <section id="postagens">
+
+        <h1> {{ numero_posts|numero_posts }} </h1>
+
+        <div id="flex">
+
+            {% for post in posts %}
+
+                <div class="post">
+                    {% if post.imagem_post %}
+                        <img src="{{ post.imagem_post.url }}" alt="{{ post.titulo_post }}">
+                    {% endif %}
+                    <h1> {{ post.titulo_post }} </h1>
+                    <p> {{ post.excerto_post }} </p>
+
+                    <small> {{ post.data_post|naturalday|title }} | {{ post.id|comentarios_index }}  | 
+                        {{ post.categoria_post|title }} </small>
+                    <form action="{% url 'post' post.id %}">
+                        <input type="submit" value="Ler mais...">
+                    </form>
+
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+        {% include 'parciais/_pagination.html' %}
+
+    </section>
+
+    <footer id="rodape">
+        <div>
+            <a href="{% url 'index' %}">
+                BlogTech
+                <i class="fa-solid fa-rocket"></i>
+            </a>
+            <p> Site desenvolvido em Django <br>
+                Feito por Guilherme Gomes
+            </p>
+        </div>
+    </footer>
+
+    <script src="{% static 'js/index/main.js' %}"></script>
+{% endblock %}

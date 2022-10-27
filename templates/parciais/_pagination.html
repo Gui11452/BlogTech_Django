@@ -1,0 +1,11 @@
+<div id="paginacao">
+    <div>
+        {% for pagina in posts.paginator.page_range %}
+            {% if posts.number == pagina %}
+                <a class="pag-itens" href="?p={{ pagina }}"> {{ pagina }} </a>
+            {% else %}
+                <a class="pag-itens" href="?p={{ pagina }}"> {{ pagina }} </a>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>

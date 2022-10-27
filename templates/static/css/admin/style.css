@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope&family=Montserrat&family=Nunito:wght@300&display=swap');
+
+:root{
+    --fonte-titulo: 'Manrope', sans-serif;
+    --fonte-subtitulo: 'Montserrat', sans-serif;
+    --fonte-paragrafo: 'Nunito', sans-serif;
+    --cor-amarela: rgb(239, 187, 65);
+    --cor-preto: rgb(84, 84, 84);
+    --cor-preto-claro: #555555;
+}
+
+body{
+    font-family: var(--fonte-subtitulo);
+}
+
+p, label{
+    color: #fff;
+    font-family: var(--fonte-subtitulo);
+}
+
+#container .main .sticky{
+    background: rgb(0, 0, 0);
+    border: 1px solid rgb(124, 124, 124);
+}
+
+#content-related{
+    background: rgb(33, 33, 33);
+}
+
+#content-related .module h2, #content-related h3, #content-related li, #content-related li span{
+    color: #fff;
+}
+
+.main, body.login{
+    background: url('Imagens/fundo3.jpg');
+}
+
+input[type='text']{
+    font-size: 10px;
+    font-family: var(--fonte-subtitulo);
+}
+
+td{
+    color: #fff;
+}
+
+.submit-row input[type='submit'], #content-main a.addLink{
+    background: var(--cor-amarela);
+    color: black;
+    transition: all 0.2s;
+    font-family: var(--fonte-subtitulo);
+}
+
+.submit-row input[type='submit']:hover{
+    transform: scale(1.1);
+}
+
+#header{
+    background: var(--cor-amarela);
+    color: black;
+}
+
+#content table caption, .sticky caption{
+    background: var(--cor-amarela);
+    font-family: var(--fonte-subtitulo);
+}
+
+#content table caption a{
+    color: black;
+}
+
+#container .breadcrumbs{
+    background: black;
+}
+
+.sticky{
+    background: black;
+}
+
+.main .content #content table tbody tr{
+    background: black;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+}
+
+#container #header #branding a{
+    display: block;
+    font-size: 30px;
+    transition: all 0.2s;
+    margin: 7px;
+    font-family: var(--fonte-titulo);
+    color: black;
+}
+
+#container #header #user-tools button, #container #header #user-tools a{
+    color: black;
+    border-bottom: 1px solid black;
+}
+
+#branding a:hover{
+    transform: scale(1.1);
+}
+
+h1, h2{
+    color: #fff;
+}
+
+#user-tools{
+    font-size: 13px;
+    text-align: center;
+}
+
+@media(min-width: 620px){
+
+    
+
+}
+
+@media(max-width: 619.98px){
+
+   
+
+}

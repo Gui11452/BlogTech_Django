@@ -1,0 +1,377 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope&family=Montserrat&family=Nunito:wght@300&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border-collapse: collapse;
+    text-decoration: none;
+}
+
+body{
+    font-size: 1.6rem;
+    width: 100%;
+}
+
+.alerta-error{
+    width: 100%;
+    font-family: var(--fonte-paragrafo);
+    background: var(--cor-red);
+    border-radius: 1rem;
+    margin: 0.5rem 0 2rem 0;
+    padding: 1.5rem;
+    text-align: center;
+    color: black;
+}
+
+
+.seta:hover{
+    transform: scale(1.1);
+}
+
+:root{
+    --fonte-titulo: 'Manrope', sans-serif;
+    --fonte-subtitulo: 'Montserrat', sans-serif;
+    --fonte-paragrafo: 'Nunito', sans-serif;
+    --cor-amarela: rgb(239, 187, 65);
+    --cor-red: #fd929d;
+    --cor-preto: rgb(51, 51, 51);
+    --cor-preto-claro: #575757;
+}
+
+/* Cabecalho - Início */
+
+#cabecalho{
+    width: 100%;
+    height: auto;
+    background: var(--cor-amarela);
+}
+
+#cabecalho>div>a, #rodape a{
+    font-size: 5rem;
+    font-family: var(--fonte-titulo);
+    transition: all 0.2s;
+    color: black;
+}
+
+#cabecalho>div>a:hover, #rodape a:hover{
+    transform: scale(1.05);
+}
+
+#cabecalho nav a{
+    font-size: 2.3rem;
+    display: inline-block;
+    font-family: var(--fonte-subtitulo);
+    color: black;
+    transition: all 0.2s;
+}
+
+#cabecalho nav a:hover{
+    transform: scale(1.1);
+}
+
+a.login span{
+    width: 0;
+    height: 0.13rem;
+    display: block;
+    background: black;
+    border-radius: 10rem;
+}
+
+a.login:hover span{
+    animation: a4 0.5s forwards;
+}
+
+@keyframes a4{
+    100%{
+        width: 9.4rem;
+    }
+}
+
+/* Cabecalho - Fim */
+
+/* Container - Início */
+
+#container{
+    width: 100%;
+    min-height: 90vh;
+    background: url('../../Imagens/fundo3.jpg');
+}
+
+#container>div{
+    width: 80%;
+    min-height: 90vh;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 0 6rem 0;
+}
+
+.profile h1{
+    font-family: var(--fonte-titulo);
+    font-size: 3rem;
+}
+
+.profile p{
+    font-family: var(--fonte-subtitulo);
+}
+
+.profile input{
+    font-family: var(--fonte-paragrafo);
+    font-size: 1.6rem;
+    background: transparent;
+    color: black;
+    border-radius:1rem;
+    padding: 1rem;
+    border: 0.2rem solid black;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.profile input:hover{
+    transform: scale(1.1);
+}
+
+.foto img{
+    width: 100%;
+}
+
+#forms{
+    display: flex;
+    flex-flow: row wrap;
+    gap: 2rem;
+}
+
+/* Container - Fim */
+
+/* Rodapé - Início */
+
+#rodape{
+    width: 100%;
+    height: auto;
+    padding: 2rem;
+    background: var(--cor-amarela);
+}
+
+#rodape p{
+    font-size: 1.6rem;
+    font-family: var(--fonte-subtitulo);
+}
+
+/* Rodapé - Fim */
+
+
+@media (min-width: 980px){
+
+    html{
+        font-size: 62.5%;
+    }
+
+    /* Cabecalho - Início */
+
+    #cabecalho>div{
+        width: 90%;
+        margin: 0 auto;
+        padding: 1rem;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        gap: 2rem;
+        align-items: center;
+    }
+
+    /* Cabecalho - Fim */
+
+    .profile{
+        height: auto;
+        border-radius: 2rem;
+        padding: 10.5rem 3rem 3rem 3rem;
+        background: rgba(255, 255, 255, 0.8);
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 1.2rem;
+        text-align: center;
+    }
+
+    .foto{
+        width: 30rem;
+        border-radius: 50%;
+        border: 1rem solid var(--cor-amarela);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+    
+    .borda-externa{
+        width: 38rem;
+        height: 38rem;
+        border-radius: 50%;
+        background: rgba(239, 187, 65, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform: translateY(10rem);
+    }
+
+    /* Rodapé - Início */
+
+    #rodape>div{
+        width: 90%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* Rodapé - Fim */
+
+}
+
+@media (max-width: 979.98px) and (min-width: 500px){
+    
+    html{
+        font-size: 52.5%;
+    }
+
+    /* Cabecalho - Início */
+
+    #cabecalho>div{
+        width: 90%;
+        margin: 0 auto;
+        padding: 1rem;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        gap: 2rem;
+        align-items: center;
+    }
+
+    /* Cabecalho - Fim */
+
+    .profile{
+        height: auto;
+        border-radius: 2rem;
+        padding: 10.5rem 3rem 3rem 3rem;
+        background: rgba(255, 255, 255, 0.8);
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 1.2rem;
+        text-align: center;
+    }
+
+    .foto{
+        width: 30rem;
+        border-radius: 50%;
+        border: 1rem solid var(--cor-amarela);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+    
+    .borda-externa{
+        width: 38rem;
+        height: 38rem;
+        border-radius: 50%;
+        background: rgba(239, 187, 65, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform: translateY(10rem);
+    }
+
+    /* Rodapé - Início */
+
+    #rodape>div{
+        width: 90%;
+        margin: 0 auto;
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 2rem;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Rodapé - Fim */
+    
+    
+}
+
+@media (max-width: 499.98px){
+    
+    html{
+        font-size: 40%;
+    }
+
+    /* Cabecalho - Início */
+
+    #cabecalho>div{
+        width: 90%;
+        margin: 0 auto;
+        padding: 1rem;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        gap: 2rem;
+        align-items: center;
+    }
+
+    .profile{
+        height: auto;
+        border-radius: 2rem;
+        padding: 10.5rem 3rem 3rem 3rem;
+        background: rgba(255, 255, 255, 0.8);
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 1.2rem;
+        text-align: center;
+    }
+
+    .foto{
+        width: 30rem;
+        border-radius: 50%;
+        border: 1rem solid var(--cor-amarela);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+    
+    .borda-externa{
+        width: 38rem;
+        height: 38rem;
+        border-radius: 50%;
+        background: rgba(239, 187, 65, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform: translateY(10rem);
+    }
+
+    /* Cabecalho - Fim */
+
+    /* Rodapé - Início */
+
+    #rodape>div{
+        width: 90%;
+        margin: 0 auto;
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 2rem;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Rodapé - Fim */
+    
+}

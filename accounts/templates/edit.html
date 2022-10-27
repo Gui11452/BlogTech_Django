@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+    
+{% block 'estilos' %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login_registro/style.css' %}">
+{% endblock %}
+
+{% block 'titulo' %} Editar {% endblock %}
+
+{% block 'main' %} 
+    
+    <header id="cabecalho">
+        <div>
+            <a href="{% url 'index' %}">
+                BlogTech
+                <i class="fa-solid fa-rocket"></i>
+            </a>
+        </div>   
+    </header>
+
+    <section id="login">
+        <div>
+            <div id="area-login">
+
+                <h1> 
+                    Editar 
+                    <i class="fa-solid fa-pencil"></i>
+                </h1>
+                <p> Altere os seus dados! </p>
+
+                {% include 'parciais/_messages.html' %}
+
+                <form action="{% url 'edit' %}" method="POST">
+                    {% csrf_token %}
+                    <label for="nome"> Nome: </label>
+                    <input type="text" name="nome" id="nome" value="{{ request.POST.nome }}">
+                    <label for="sobrenome"> Sobrenome: </label>
+                    <input type="text" name="sobrenome" id="sobrenome" value="{{ request.POST.sobrenome }}">
+                    <label for="usuario"> Usuário: </label>
+                    <input type="text" name="usuario" id="usuario"  value="{{ request.POST.usuario }}">
+                    <small> O usuário só pode ter entre 7 e 14 caracteres! </small>
+                    <label for="senha1"> Nova senha: </label>
+                    <input type="password" name="senha1" id="senha1">
+                    <small> A senha tem que ter no mínimo 8 caracteres! </small>
+                    <label for="senha2"> Repetir senha: </label>
+                    <input type="password" name="senha2" id="senha2">
+                    <input type="submit" class="botao" value="Alterar dados">
+                </form>
+
+            </div>
+        </div>
+    </section>
+
+
+    <footer id="rodape">
+        <div>
+            <a href="{% url 'index' %}">
+                BlogTech
+                <i class="fa-solid fa-rocket"></i>
+            </a>
+            <p> Site desenvolvido em Django <br>
+                Feito por Guilherme Gomes
+            </p>
+        </div>
+    </footer>
+
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'estilos' %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/profile/style.css' %}">
+{% endblock %}
+
+{% block 'titulo' %} {{ user }} {% endblock %}
+
+{% block 'main' %} 
+    
+    <header id="cabecalho">
+        <div>
+            <a href="{% url 'index' %}">
+                BlogTech
+                <i class="fa-solid fa-rocket"></i>
+            </a>
+        </div>   
+    </header>
+
+    <section id="container">
+        <div>
+            <div class="borda-externa">
+                <div class="foto">
+                    <img src="{% static 'Imagens/profile.jpg' %}">
+                </div>
+            </div>
+            <div class="profile">
+                <h1> {{ user.first_name }} {{ user.last_name }} </h1>
+                <p> E-mail: {{ user.email }} </p>
+                <p> Usuário: {{ user }} </p>
+                <div id="forms">
+                    <form action="{% url 'edit' %}">
+                        <input type="submit" value="Mudar perfil">
+                    </form>
+                    <form action="{% url 'logout' %}">
+                        <input type="submit" value="Sair">
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer id="rodape">
+        <div>
+            <a href="{% url 'index' %}">
+                BlogTech
+                <i class="fa-solid fa-rocket"></i>
+            </a>
+            <p> Site desenvolvido em Django <br>
+                Feito por Guilherme Gomes
+            </p>
+        </div>
+    </footer>
+
+
+{% endblock %} 

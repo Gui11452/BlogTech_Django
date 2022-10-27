@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block 'estilos' %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/post/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/post/mediaqueries1.css' %}">
+{% endblock %}
+
+{% block 'titulo' %} {{ post }} {% endblock %}
+
+{% block 'main' %} 
+
+    <i class="fa-solid fa-arrow-up seta"></i>
+    
+    <header id="cabecalho">
+        <div>
+            <a href="{% url 'index' %}">
+                BlogTech
+                <i class="fa-solid fa-rocket"></i>
+            </a>
+
+            <nav>
+                {% if not user.is_authenticated %}
+                    <a href="{% url 'login' %}" class="quatro"> 
+                        Login
+                        <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                        <span></span>
+                    </a>
+                {% else %}
+                    <a href="{% url 'profile' %}" class="usuario"> 
+                        {{ user }}
+                        <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                    </a>
+                {% endif %}
+            </nav>
+
+        </div>   
+    </header>
+
+    <section id="post">
+        <div>
+            <div class="post-interno">
+                <h1> {{ post.titulo_post }} </h1>
+                <p> {{ post.excerto_post }}
+                </p>
+                <small class="autor-post">
+                    Por {{ post.autor_post }} <br>
+                    {{ post.data_post|naturalday|title }} | {{ post.categoria_post }}
+                </small>
+                <span class="span"></span>
+                {% if post.imagem_post %}
+                    <img src="{{ post.imagem_post.url }}" alt="">
+                {% endif %}
+                <div class="postagem">
+                    {{ post.conteudo_post|safe }}
+                </div>
+
+                <span class="span"></span>
+
+                <h2> Comentários ({{ num_comentarios }}) </h2>
+
+                {% for comentario in comentarios %}
+                    <div class="comentarios">
+                        <p class="nome_comentario"> {{ comentario.nome_comentario }} </p>
+                        <small> {{ comentario.data_comentario|naturalday }} </small>
+                        <small class="autor"> {{ comentario.usuario_comentario }} disse: </small>
+                        <p class="comentario"> 
+                            {{ comentario.comentario }}
+                        </p>
+                    </div>
+                {% endfor %}
+
+                <span class="span"></span>
+
+                <h2> Deixe um comentário: </h2>
+                {% if not user.is_authenticated %}
+                    <div class="alerta-error"> 
+                        Você precisa estar logado para poder comentar!
+                    </div>
+                {% else %}
+                    {% include 'parciais/_messages.html' %}
+                    <form action="{% url 'post' post.id %}" method="POST">
+                        {% csrf_token %}
+                        <label for="titulo"> Título: </label>
+                        <input type="text" name="titulo" id="titulo" placeholder="Título do comentário..."
+                        value="{{ request.POST.titulo }}">
+                        <label for="email"> E-mail: </label>
+                        <input type="email" name="email" id="email" placeholder="email@gmail.com"
+                        value="{{ request.POST.email }}">
+                        <label for="comentario"> Comentário: </label>
+                        <textarea name="comentario" id="comentario" cols="30" rows="10"
+                        placeholder="Seu comentário..." value="{{ request.POST.comentario }}"></textarea>
+                        <div class="g-recaptcha" data-sitekey="{{ chave_front_end }}"></div>
+
+                        
+                        <input type="submit" class="botao" value="Enviar">
+                        <!-- {{ form }} -->
+                    </form>
+                {% endif %}
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <footer id="rodape">
+        <div>
+            <a href="{% url 'index' %}">
+                BlogTech
+                <i class="fa-solid fa-rocket"></i>
+            </a>
+            <p> Site desenvolvido em Django <br>
+                Feito por Guilherme Gomes
+            </p>
+        </div>
+    </footer>
+
+    <script src="{% static 'js/post/main.js' %}"></script>
+{% endblock %} 

@@ -1,0 +1,398 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope&family=Montserrat&family=Nunito:wght@300&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border-collapse: collapse;
+    text-decoration: none;
+}
+
+body{
+    font-size: 1.6rem;
+    width: 100%;
+}
+
+.seta{
+    position: fixed;
+    bottom: 0.5rem;
+    right: 0.5rem;
+    font-size: 5rem;
+    color: #fff;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.seta:hover{
+    transform: scale(1.1);
+}
+
+:root{
+    --fonte-titulo: 'Manrope', sans-serif;
+    --fonte-subtitulo: 'Montserrat', sans-serif;
+    --fonte-paragrafo: 'Nunito', sans-serif;
+    --cor-amarela: rgb(239, 187, 65);
+    --cor-preto: rgb(51, 51, 51);
+    --cor-preto-claro: #575757;
+}
+
+/* Cabecalho - Início */
+
+#cabecalho{
+    width: 100%;
+    height: auto;
+    background: var(--cor-amarela);
+}
+
+.div-visivel{
+    width: 90%;
+    margin: 0 auto;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.div-visivel>a, #rodape a{
+    font-size: 5rem;
+    font-family: var(--fonte-titulo);
+    transition: all 0.2s;
+    color: black;
+}
+
+.div-visivel>a:hover, #rodape a:hover{
+    transform: scale(1.05);
+}
+
+.div-visivel .cabecalho-visivel>span{
+    height: 3rem;
+    width: 0.2rem;
+    background: black;
+    border-radius: 10rem;
+}
+
+.div-visivel .cabecalho-visivel a, .div-oculta .cabecalho-oculto a{
+    font-size: 2.3rem;
+    display: inline-block;
+    font-family: var(--fonte-subtitulo);
+    color: black;
+    transition: all 0.2s;
+}
+
+.div-visivel .cabecalho-visivel a, .div-oculta .cabecalho-oculto a{
+    font-size: 2.3rem;
+    display: inline-block;
+    font-family: var(--fonte-subtitulo);
+    color: black;
+    transition: all 0.2s;
+}
+
+.div-visivel .cabecalho-visivel a:hover, .div-oculta .cabecalho-oculto a:hover{
+    transform: scale(1.1);
+}
+
+.div-visivel a span, .div-oculta a span{
+    width: 0;
+    height: 0.13rem;
+    display: block;
+    background: black;
+    border-radius: 10rem;
+}
+
+a.um:hover span{
+    animation: a1 0.5s forwards;
+}
+
+a.dois:hover span{
+    animation: a2 0.5s forwards;
+}
+
+a.tres:hover span{
+    animation: a3 0.5s forwards;
+}
+
+a.quatro:hover span{
+    animation: a4 0.5s forwards;
+}
+
+@keyframes a1{
+    100%{
+        width: 6.75rem;
+    }
+}
+
+@keyframes a2{
+    100%{
+        width: 12.5rem;
+    }
+}
+
+@keyframes a3{
+    100%{
+        width: 7.8rem;
+    }
+}
+
+@keyframes a4{
+    100%{
+        width: 9.4rem;
+    }
+}
+
+#cabecalho>div.mostrar-cabecalho-oculto{
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+    height: auto;
+}
+
+/* Cabecalho - Fim */
+
+
+/* Pesquisa - Início */
+
+#pesquisa{
+    width: 100%;
+    min-height: 70vh;
+    background: url('../../Imagens/fundo2.jpg') fixed;
+    background-size: cover;
+    border-bottom: 0.3rem solid #fff;
+    border-top: 0.3rem solid #fff;
+}
+
+#pesquisa>div{
+    width: 90%;
+    min-height: 70vh;
+    padding: 4rem 0 4rem 0;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.pesquisa-interna{
+    width: 90%;
+    color: #fff;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1.6rem;
+}
+
+.pesquisa-interna h1{
+    font-size: 5rem;
+    font-family: var(--fonte-titulo);
+    letter-spacing: 0.3rem;
+}
+
+.pesquisa-interna p:nth-of-type(1){
+    font-size: 1.8rem;
+    font-style: italic;
+    font-family: var(--fonte-subtitulo);
+}
+
+.pesquisa-interna p:nth-of-type(2){
+    font-size: 1.6rem;
+    font-family: var(--fonte-paragrafo);
+    letter-spacing: 0.1rem;
+}
+
+.pesquisa-interna span{
+    width: 80%;
+    margin: 2rem 0 1rem 0;
+    display: inline-block;
+    height: 0.2rem;
+    background: #fff;
+    border-radius: 10rem;
+}
+
+.pesquisa-interna input{
+    width: 80%;
+    padding: 1.5rem;
+    font-size: 1.6rem;
+    color: black;
+    border: none;
+    outline: 0.2rem solid #ccc;
+    border-radius: 2rem;
+    transition: all 0.2s;
+}
+
+.pesquisa-interna input:focus{
+    outline: 0.2rem solid black;
+    transform: scale(1.01);
+}
+
+/* Pesquisa - Fim */
+
+
+/* Postagens - Início */
+
+#postagens{
+    width: 100%;
+    background: url('../../Imagens/fundo3.jpg');
+    background-size: cover;
+    height: auto;
+}
+
+#postagens>h1{
+    width: 85%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 2rem 0 1rem 0;
+    color: #fff;
+    font-family: var(--fonte-titulo);
+    letter-spacing: 0.3rem;
+}
+
+#flex{
+    width: 85%;
+    margin: 0 auto;
+    height: auto;
+    padding: 3rem 0 3rem 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2rem;
+}
+/*
+#grid>div:nth-of-type(3){
+    align-self: flex-end;
+}*/
+
+.post{
+    min-width: 30rem;
+    max-width: 40rem;
+    padding: 2rem;
+    border-radius: 2rem;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1.5rem;
+}
+
+.post h1{
+    font-size: 3.5rem;
+    font-family: var(--fonte-titulo);
+}
+
+.post img{
+    object-fit: cover;
+    width: 100%;
+}
+
+.post p{
+    font-size: 1.6rem;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 10;
+    overflow: hidden;
+    font-family: var(--fonte-subtitulo);
+}
+
+.post small{
+    font-family: var(--fonte-paragrafo);
+}
+
+.post form{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.post input{
+    border: 0.3rem solid var(--cor-amarela);
+    font-family: var(--fonte-subtitulo);
+    color: var(--cor-amarela);
+    font-weight: bold;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    cursor: pointer;
+    background: transparent;
+    transition: all 0.2s;
+}
+
+.post input:hover{
+    transform: scale(1.1);
+}
+
+#paginacao{
+    width: 100%;
+}
+
+#paginacao>div{
+    width: 80%;
+    margin: 0 auto;
+    padding: 2rem;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.pag-itens{
+    background: transparent;
+    font-family: var(--fonte-titulo);
+    border: 0.2rem solid var(--cor-amarela);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    color: var(--cor-amarela);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.pag-itens:hover{
+    transform: scale(1.05);
+}
+
+/* Postagens - Fim */
+
+/* Rodapé - Início */
+
+#rodape{
+    width: 100%;
+    height: auto;
+    padding: 2rem;
+    background: var(--cor-amarela);
+}
+
+#rodape p{
+    font-size: 1.6rem;
+    font-family: var(--fonte-subtitulo);
+}
+
+/* Rodapé - Fim */
+
+
+@media (min-width: 980px){
+
+    html{
+        font-size: 62.5%;
+    }
+
+    .div-visivel .cabecalho-visivel{
+        display: flex;
+        gap: 2rem;
+    }
+
+    .botao-oculto{
+        display: none;
+    }
+
+    body #cabecalho>div.div-oculta{
+        display: none;
+    }
+
+    /* Rodapé - Início */
+
+    #rodape>div{
+        width: 90%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* Rodapé - Fim */
+
+}

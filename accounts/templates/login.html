@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'estilos' %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login_registro/style.css' %}">
+{% endblock %}
+
+{% block 'titulo' %} Login {% endblock %}
+
+{% block 'main' %} 
+    
+    <header id="cabecalho">
+        <div>
+            <a href="{% url 'index' %}">
+                BlogTech
+                <i class="fa-solid fa-rocket"></i>
+            </a>
+        </div>   
+    </header>
+
+    <section id="login">
+        <div>
+            <div id="area-login">
+
+                <h1> 
+                    Login 
+                    <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                </h1>
+                <p> Ei, insira seus dados para fazer login na sua conta </p>
+
+                {% include 'parciais/_messages.html' %}
+
+                <form action="{% url 'login' %}" method="POST">
+                    {% csrf_token %}
+                    <label for="usuario"> Usuário: </label>
+                    <input type="text" name="usuario" id="usuario" value="{{ request.POST.usuario }}">
+                    <label for="senha"> Senha: </label>
+                    <input type="password" name="senha" id="senha">
+                    <input type="submit" class="botao" value="Entrar">
+                </form>
+
+                <span></span>
+                <p> Não tem uma conta? 
+                    <a href="{% url 'registro' %}"> Registre-se agora! </a>
+                </p>
+
+            </div>
+        </div>
+    </section>
+
+
+    <footer id="rodape">
+        <div>
+            <a href="{% url 'index' %}">
+                BlogTech
+                <i class="fa-solid fa-rocket"></i>
+            </a>
+            <p> Site desenvolvido em Django <br>
+                Feito por Guilherme Gomes
+            </p>
+        </div>
+    </footer>
+
+{% endblock %} 

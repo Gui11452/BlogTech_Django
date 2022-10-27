@@ -1,0 +1,329 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope&family=Montserrat&family=Nunito:wght@300&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border-collapse: collapse;
+    text-decoration: none;
+}
+
+body{
+    font-size: 1.6rem;
+    width: 100%;
+}
+
+.alerta-error{
+    width: 100%;
+    font-family: var(--fonte-paragrafo);
+    background: var(--cor-red);
+    border-radius: 1rem;
+    margin: 0.5rem 0 2rem 0;
+    padding: 1.5rem;
+    text-align: center;
+    color: black;
+}
+
+.alerta-sucesso{
+    width: 100%;
+    font-family: var(--fonte-paragrafo);
+    background: var(--cor-verde);
+    border-radius: 1rem;
+    margin: 0.5rem 0 2rem 0;
+    padding: 1.5rem;
+    text-align: center;
+    color: black;
+}
+
+.seta{
+    position: fixed;
+    bottom: 0.5rem;
+    right: 0.5rem;
+    font-size: 5rem;
+    color: #fff;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.seta:hover{
+    transform: scale(1.1);
+}
+
+:root{
+    --fonte-titulo: 'Manrope', sans-serif;
+    --fonte-subtitulo: 'Montserrat', sans-serif;
+    --fonte-paragrafo: 'Nunito', sans-serif;
+    --cor-amarela: rgb(239, 187, 65);
+    --cor-red: #fd929d;
+    --cor-verde: #9cf8b1;
+    --cor-preto: rgb(51, 51, 51);
+    --cor-preto-claro: #575757;
+}
+
+/* Cabecalho - Início */
+
+#cabecalho{
+    width: 100%;
+    height: auto;
+    background: var(--cor-amarela);
+}
+
+#cabecalho>div>a, #rodape a{
+    font-size: 5rem;
+    font-family: var(--fonte-titulo);
+    transition: all 0.2s;
+    color: black;
+}
+
+#cabecalho>div>a:hover, #rodape a:hover{
+    transform: scale(1.05);
+}
+
+#cabecalho nav a{
+    font-size: 2.3rem;
+    display: inline-block;
+    font-family: var(--fonte-subtitulo);
+    color: black;
+    transition: all 0.2s;
+}
+
+#cabecalho nav a:hover{
+    transform: scale(1.1);
+}
+
+a.login span{
+    width: 0;
+    height: 0.13rem;
+    display: block;
+    background: black;
+    border-radius: 10rem;
+}
+
+a.login:hover span{
+    animation: a4 0.5s forwards;
+}
+
+@keyframes a4{
+    100%{
+        width: 9.4rem;
+    }
+}
+
+/* Cabecalho - Fim */
+
+
+/* Post - Início */
+
+#post{
+    width: 100%;
+    min-height: 100vh;
+    padding: 2rem;
+    background: url('../../Imagens/fundo3.jpg');
+    background-size: cover;
+    color: #fff;
+    overflow-wrap: break-word
+}
+
+#post>div{
+    width: 80%;
+    margin: 2rem auto;
+    min-height: 100vh;
+}
+
+#post h1{
+    font-family: var(--fonte-titulo);
+    font-size: 4rem;
+}
+
+#post p{
+    font-family: var(--fonte-subtitulo);
+    color: var(--cor-amarela);
+    font-size: 2rem;
+    font-weight: 0;
+}
+
+#post p.nome_comentario{
+    font-size: 2.5rem;
+}
+
+#post small.autor-post{
+    font-family: var(--fonte-paragrafo);
+    text-align: center;
+}
+
+#post span.span{
+    display: inline-block;
+    width: 100%;
+    height: 0.2rem;
+    margin: 2rem auto;
+    border-radius: 1rem;
+    background: var(--cor-amarela);
+}
+
+#post img{
+    width: 100%;
+    object-fit: cover;
+    margin: 2rem 0 2rem 0;
+}
+
+#post div.postagem{
+    font-family: var(--fonte-paragrafo);
+    text-align: justify;
+    text-indent: 5rem;
+    
+    border-radius: 2rem;
+    padding: 2rem;
+}
+
+.postagem font, .postagem p, .postagem span{
+    font-family: var(--fonte-paragrafo) !important;
+    color: #fff !important;
+    font-size: 2rem !important;
+}
+
+.comentarios{
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 0.5rem;
+    align-items: flex-start;
+    margin: 1rem 0 1rem 0;
+}
+
+#post h2{
+    align-self: flex-start;
+    font-family: var(--fonte-titulo);
+    font-size: 3rem !important;
+    color: #fff !important;
+}
+
+#post small.autor{
+    font-size: 1.7rem;
+}
+
+#post small{
+    font-family: var(--fonte-paragrafo);
+    font-size: 1.4rem;
+    text-align: justify;
+    color: #fff;
+}
+
+#post .comentarios p.comentario{
+    font-family: var(--fonte-paragrafo);
+    text-align: justify;
+    color: #fff;
+    margin: 1rem 0 1rem 0;
+}
+
+#post form{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+#post label{
+    display: block;
+    font-family: var(--fonte-paragrafo);
+    font-size: 2rem;
+}
+
+#post input, textarea{
+    width: 70%;
+    padding: 0.8rem;
+    font-size: 1.7rem;
+    border-radius: 1rem;
+    transition: all 0.2s;
+    font-family: var(--fonte-paragrafo);
+}
+
+#post input:focus{
+    transform: scale(1.01);
+    border: 0.2rem solid #ccc;
+}
+/*
+.g-recaptcha{
+    width: 70% !important;
+    height: auto !important; 
+    margin-top: 1rem;
+}*/
+
+#post input.botao{
+    width: 7rem;
+    cursor: pointer;
+    margin: 1rem 0 1rem 0;
+    color: var(--cor-amarela);
+    background: transparent;
+    border-radius: 1rem;
+    border: 0.2rem solid var(--cor-amarela);
+    transition: all 0.2s;
+}
+
+#post input.botao:hover{
+    transform: scale(1.1);
+}
+
+
+/* Post - Fim */
+
+
+/* Rodapé - Início */
+
+#rodape{
+    width: 100%;
+    height: auto;
+    padding: 2rem;
+    background: var(--cor-amarela);
+}
+
+#rodape p{
+    font-size: 1.6rem;
+    font-family: var(--fonte-subtitulo);
+}
+
+/* Rodapé - Fim */
+
+
+@media (min-width: 980px){
+
+    html{
+        font-size: 62.5%;
+    }
+
+    /* Cabecalho - Início */
+
+    #cabecalho>div{
+        width: 90%;
+        margin: 0 auto;
+        padding: 1rem;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        gap: 2rem;
+        align-items: center;
+    }
+
+    /* Cabecalho - Fim */
+
+    .post-interno{
+        width: 70%;
+        margin: 0 auto;
+        text-align: center;
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 2rem;
+    }
+
+    /* Rodapé - Início */
+
+    #rodape>div{
+        width: 90%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* Rodapé - Fim */
+
+}

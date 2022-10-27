@@ -1,0 +1,16 @@
+{% extends 'admin/base.html' %}
+{% load static %}
+
+{% block branding %}
+    <a href="{% url 'index' %}" id="logo">
+        BlogTech
+        <i class="fa-solid fa-rocket"></i>
+    </a>
+{% endblock %}
+
+{% block extrastyle %}
+    <link rel="stylesheet" type="text/css" href="{% static 'fontawesome/css/all.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/admin/style.css' %}">
+    <link rel="icon" href="Imagens/rocket.png">
+    <title> {% block title %} Blog Tech - Área administrativa {% endblock %}</title>
+{% endblock %}
